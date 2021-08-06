@@ -26,7 +26,6 @@ class Register : AppCompatActivity() {
             val id = edit_id.text.toString()
             val pw = edit_pw.text.toString()
             val pw_re = edit_pw_re.text.toString()
-            val phone_num = edit_phone_num.text.toString()
 
             // 유저가 항목을 다 채우지 않았을 경우
             if(id.isEmpty() || pw.isEmpty() || pw_re.isEmpty() ){
