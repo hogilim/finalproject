@@ -42,18 +42,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_pw" />
 
-    <EditText
-        android:id="@+id/edit_phone_num"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:hint="전화번호"
-        android:inputType="phone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_pw_re" />
-
     <Button
         android:id="@+id/btn_register"
         android:layout_width="wrap_content"
@@ -63,6 +51,6 @@
         android:layout_marginRight="160dp"
         android:text="회원가입"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_phone_num" />
+        app:layout_constraintTop_toBottomOf="@+id/edit_pw" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
