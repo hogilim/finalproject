@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="dong">
-        <item>선택하세요</item>
+        <item>구</item>
         <item>종로구</item>
         <item>중구</item>
         <item>용산구</item>

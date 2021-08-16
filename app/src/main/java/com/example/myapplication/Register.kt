@@ -15,92 +15,69 @@ import kotlinx.android.synthetic.main.activity_register.*
 
 class Register : AppCompatActivity() {
 
-    var location_Si = resources.getStringArray(R.array.si)
-    var location_gu = resources.getStringArray(R.array.gu)
-    var location_Dong = resources.getStringArray(R.array.dong)
-    var adapter_Si = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, location_Si)
-    var adapter_gu = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, location_gu)
-    var adapter_Dong =
-        ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, location_Dong)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        // spinner 설정 끝
-        select_si.setSelection(1)
-        select_gu.setSelection(1)
-        select_dong.setSelection(1)
-        select_si.onItemSelectedListener = object : AdapterView.OnItemClickListener,
-            AdapterView.OnItemSelectedListener {
+
+        // spinner 설정
+        var location_Si = resources.getStringArray(R.array.si)
+        var location_gu = resources.getStringArray(R.array.gu)
+        var location_Dong = resources.getStringArray(R.array.dong)
+        var adapter_Si = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, location_Si)
+        var adapter_gu = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, location_gu)
+        var adapter_Dong =
+            ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, location_Dong)
+
+        select_si.adapter = adapter_Si
+        select_gu.adapter = adapter_gu
+        select_dong.adapter = adapter_Dong
+        select_si.setSelection(0)
+        select_gu.setSelection(0)
+        select_dong.setSelection(0)
+
+        select_si.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View?,
                 position: Int,
                 id: Long
             ) {
-                TODO("Not yet implemented")
+
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                TODO("Not yet implemented")
-            }
 
-            override fun onItemClick(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                TODO("Not yet implemented")
             }
         }
-        select_gu.onItemSelectedListener = object : AdapterView.OnItemClickListener,
-            AdapterView.OnItemSelectedListener {
+
+        select_gu.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View?,
                 position: Int,
                 id: Long
             ) {
-                TODO("Not yet implemented")
+
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                TODO("Not yet implemented")
-            }
 
-            override fun onItemClick(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                TODO("Not yet implemented")
             }
         }
-        select_dong.onItemSelectedListener = object : AdapterView.OnItemClickListener,
-            AdapterView.OnItemSelectedListener {
+        select_dong.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View?,
                 position: Int,
                 id: Long
             ) {
-                TODO("Not yet implemented")
+
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                TODO("Not yet implemented")
-            }
 
-            override fun onItemClick(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                TODO("Not yet implemented")
             }
         }
         // spinner 설정
