@@ -61,18 +61,18 @@
             android:layout_weight="1"/>
 
         <Spinner
-            android:id="@+id/select_dong"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="동"
-            android:layout_margin="10dp"
-            android:layout_weight="1"/>
-
-        <Spinner
             android:id="@+id/select_gu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="구"
+            android:layout_margin="10dp"
+            android:layout_weight="1"/>
+
+        <Spinner
+            android:id="@+id/select_dong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="동"
             android:layout_margin="10dp"
             android:layout_weight="1"/>
     </LinearLayout>
