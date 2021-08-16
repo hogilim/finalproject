@@ -15,9 +15,6 @@ import kotlinx.android.synthetic.main.activity_register.*
 
 class Register : AppCompatActivity() {
 
-    var isExistBlank = false
-    var isPWSame = false
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
@@ -78,27 +75,47 @@ class Register : AppCompatActivity() {
 
             }
         }
-        // spinner 설정
 
+        // 가입 버튼 누를 때
         btn_register.setOnClickListener {
+
+            var isExistBlank = false
+            var isPWSame = false
+
             val id = edit_id.text.toString()
+            val nickname = edit_nickname.text.toString()
             val pw = edit_pw.text.toString()
             val pw_re = edit_pw_re.text.toString()
             val si = selected_si
             val gu = selected_gu
             val dong = selected_dong
 
-            if(id.isEmpty()||pw.isEmpty()||pw_re.isEmpty()||si=="시"||gu=="구"){
-                Toast.makeText(this, "모든 정보를 작성해주세요.", Toast.LENGTH_SHORT)
+            // 안채운 양식 확인
+            if(id.isEmpty()||nickname.isEmpty()||pw.isEmpty()||pw_re.isEmpty()||si=="시"||gu=="구"){
+                Toast.makeText(this, "모든 정보를 작성해주세요.", Toast.LENGTH_SHORT).show()
                 isExistBlank = true
             }
+            // 패스워드 확인
             if(pw == pw_re){
-                Toast.makeText(this, "비밀번호가 다릅니다.", Toast.LENGTH_SHORT)
                 isPWSame = true
             }
+            else{
+                Toast.makeText(this, "비밀번호가 다릅니다.", Toast.LENGTH_SHORT).show()
+                isPWSame = false
+            }
 
+            // 양식 다 채우고 패스워드 잘 입력 시 서버 통신
             if(!isExistBlank && isPWSame){
-
+                // 서버 데이터 전송 후 유효하면 가입 성공 유효하지 않으면 실패 메시지
+                var registerCheck = true
+                if(registerCheck) {
+                    Toast.makeText(this, "회원가입 성공! 로그인하세요.",Toast.LENGTH_SHORT).show()
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                }
+                else{
+                    Toast.makeText(this, "회원가입 실패.",Toast.LENGTH_SHORT).show()
+                }
             }
 
         }

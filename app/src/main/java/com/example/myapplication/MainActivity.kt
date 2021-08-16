@@ -9,37 +9,38 @@ import retrofit2.http.*
 
 
 class MainActivity : AppCompatActivity() {
+    var loginCheck : Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        register()
-        logincheck()
-
-    }
-    fun register(){
-        btn_register.setOnClickListener{
-            val intent = Intent(this,Register::class.java)
+        // 회원가입 버튼
+        btn_register.setOnClickListener {
+            val intent = Intent(this, Register::class.java)
             startActivity(intent)
         }
-    }
-    fun logincheck() {
-        var check : Boolean = false
+
+        // 로그인 버튼
         btn_login.setOnClickListener{
             val id = edit_id.text.toString()
             val pw = edit_pw.text.toString()
-            //check
-            check = true
-            if(check){
+
+            // 입력 확인
+            if(id.isEmpty()||pw.isEmpty()){
+                Toast.makeText(this,"ID와 PW를 모두 입력하세요", Toast.LENGTH_SHORT).show()
+            }
+            else{
+                // 서버 통신 로그인 체크
+                loginCheck = true
+            }
+
+            if(loginCheck){
                 val intent = Intent(this,Board::class.java)
                 startActivity(intent)
             }
             else
                 Toast.makeText(applicationContext,"Error",Toast.LENGTH_SHORT).show()
         }
-
     }
-
-
 
 
 }
