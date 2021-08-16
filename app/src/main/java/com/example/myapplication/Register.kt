@@ -44,14 +44,12 @@ class Register : AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
-
+                println("si")
             }
-
             override fun onNothingSelected(parent: AdapterView<*>?) {
 
             }
         }
-
         select_gu.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
@@ -59,9 +57,8 @@ class Register : AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
-
+                println("gu")
             }
-
             override fun onNothingSelected(parent: AdapterView<*>?) {
 
             }
@@ -73,9 +70,8 @@ class Register : AppCompatActivity() {
                 position: Int,
                 id: Long
             ) {
-
+                println("dong")
             }
-
             override fun onNothingSelected(parent: AdapterView<*>?) {
 
             }
