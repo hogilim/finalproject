@@ -1,6 +1,6 @@
 package com.example.myapplication.unit
 
-data class UnitRequest(
+data class UnitResponse(
     val dogname : String,
     val doggender : String,
     val dogage : Int,
