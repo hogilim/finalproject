@@ -9,18 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Register" />
-        <activity android:name=".Board" />
-        <activity android:name=".FoundReport" />
-        <activity android:name=".LostReport" />
-        <activity android:name=".ShowBoard" />
+        <activity android:name=".ui.Register" />
+        <activity android:name=".ui.Board" />
+        <activity android:name=".ui.FoundReport" />
+        <activity android:name=".ui.LostReport" />
+        <activity android:name=".ui.ShowBoard" />
     </application>
 
 </manifest>
