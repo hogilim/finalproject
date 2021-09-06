@@ -11,11 +11,12 @@ import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityRegisterBinding
 
 class Register : AppCompatActivity() {
-    val binding = ActivityRegisterBinding.inflate(layoutInflater)
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_register)
+        val binding = ActivityRegisterBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         // spinner 설정
         var location_Si = resources.getStringArray(R.array.si)

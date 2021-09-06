@@ -2,28 +2,29 @@ package com.example.myapplication.ui
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityBoardBinding
 import com.example.myapplication.register.UserLocation
 
 
 class Board: AppCompatActivity() {
-    val binding = ActivityBoardBinding.inflate(layoutInflater)
+
     val items = ArrayList<BoardUnit>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_board)
+        val binding = ActivityBoardBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
 
 
-        initRecycler()
-        lost()
-        found()
-        refresh()
+        initRecycler(binding)
+        lost(binding)
+        found(binding)
+        refresh(binding)
     }
-    private fun initRecycler() {
+    private fun initRecycler(binding: ActivityBoardBinding) {
 
         items.apply {
             add(BoardUnit(imgProfile = "d1", name = "mary", gender = "male", location = UserLocation("난향","관악"), 1))
@@ -48,19 +49,19 @@ class Board: AppCompatActivity() {
     fun select(){
 
     }
-    fun lost(){
+    fun lost(binding: ActivityBoardBinding) {
         binding.lost.setOnClickListener{
             val intent = Intent(this, LostReport::class.java)
             startActivity(intent)
         }
     }
-    fun found(){
+    fun found(binding: ActivityBoardBinding) {
         binding.found.setOnClickListener{
             val intent = Intent(this, FoundReport::class.java)
             startActivity(intent)
         }
     }
-    fun refresh(){
+    fun refresh(binding: ActivityBoardBinding) {
         // 리스트 refresh
     }
 

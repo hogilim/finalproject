@@ -1,6 +1,7 @@
 // https://makasti.tistory.com/73
-package com.example.myapplication.camara
 
+package com.example.myapplication.camara
+/*
 import android.Manifest
 import android.app.Activity
 import com.example.myapplication.ui.Board
@@ -14,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
 import android.util.Log
-import kotlinx.android.synthetic.main.camtest.*
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import com.example.myapplication.R
@@ -73,4 +73,4 @@ class CamTest : AppCompatActivity() {
         }
 
     }
-}
+}*/

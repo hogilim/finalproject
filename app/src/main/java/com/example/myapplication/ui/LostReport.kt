@@ -3,13 +3,12 @@ package com.example.myapplication.ui
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityLostBinding
 
 
 class LostReport: AppCompatActivity() {
-    val binding = ActivityLostBinding.inflate(layoutInflater)
     var picture = ""
     var title = ""
     var cont = ""
@@ -17,11 +16,12 @@ class LostReport: AppCompatActivity() {
     var dog_gender = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_lost)
+        val binding = ActivityLostBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        upload()
+        upload(binding)
     }
-    fun upload(){
+    fun upload(binding: ActivityLostBinding) {
         binding.confirm.setOnClickListener {
             Toast.makeText(applicationContext,"글 작성 완료", Toast.LENGTH_SHORT).show()
             // 변수 설정 및 http 업로드

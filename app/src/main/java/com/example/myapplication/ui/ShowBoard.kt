@@ -2,12 +2,11 @@ package com.example.myapplication.ui
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.annotation.NonNull
 import androidx.appcompat.app.AppCompatActivity
-import com.example.myapplication.R
 import com.example.myapplication.databinding.ActivityShowboardBinding
 
 class ShowBoard: AppCompatActivity() {
-    val binding = ActivityShowboardBinding.inflate(layoutInflater)
     var picture = ""
     var title = ""
     var cont = ""
@@ -15,14 +14,15 @@ class ShowBoard: AppCompatActivity() {
     var dog_gender = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_showboard)
+        val binding = ActivityShowboardBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
-        upload()
+        upload(binding)
     }
     fun set(){
         // 변수값 받아와 초기화
     }
-    fun upload(){
+    fun upload(binding: ActivityShowboardBinding){
         binding.confirm.setOnClickListener {
             // 글작성
             val intent = Intent(this, FoundReport::class.java)

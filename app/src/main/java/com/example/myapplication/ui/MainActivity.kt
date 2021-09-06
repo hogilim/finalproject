@@ -9,11 +9,12 @@ import com.example.myapplication.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
-    val binding = ActivityMainBinding.inflate(layoutInflater)
+
     var loginCheck : Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
+        val binding = ActivityMainBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(binding.root)
         // 회원가입 버튼
         binding.btnRegister.setOnClickListener {
             val intent = Intent(this, Register::class.java)
