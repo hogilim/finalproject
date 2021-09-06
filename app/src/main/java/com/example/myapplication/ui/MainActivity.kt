@@ -3,26 +3,27 @@ package com.example.myapplication.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import kotlinx.android.synthetic.main.activity_main.*
 import android.widget.Toast
 import com.example.myapplication.R
+import com.example.myapplication.databinding.ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
+    val binding = ActivityMainBinding.inflate(layoutInflater)
     var loginCheck : Boolean = false
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         // 회원가입 버튼
-        btn_register.setOnClickListener {
+        binding.btnRegister.setOnClickListener {
             val intent = Intent(this, Register::class.java)
             startActivity(intent)
         }
 
         // 로그인 버튼
-        btn_login.setOnClickListener{
-            val id = edit_id.text.toString()
-            val pw = edit_pw.text.toString()
+        binding.btnLogin.setOnClickListener{
+            val id = binding.editId.text.toString()
+            val pw = binding.editPw.text.toString()
 
             // 입력 확인
             if(id.isEmpty()||pw.isEmpty()){

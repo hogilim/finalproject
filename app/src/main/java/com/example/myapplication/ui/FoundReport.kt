@@ -5,9 +5,11 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
-import kotlinx.android.synthetic.main.activity_found.*
+import com.example.myapplication.databinding.ActivityFoundBinding
+
 
 class FoundReport: AppCompatActivity() {
+    val binding = ActivityFoundBinding.inflate(layoutInflater)
     var picture = ""
     var title = ""
     var cont = ""
@@ -20,12 +22,12 @@ class FoundReport: AppCompatActivity() {
         upload()
     }
     fun select_picture(){
-        select_picture.setOnClickListener {
+        binding.selectPicture.setOnClickListener {
             // 사진 선택 후 imageview에 띄움
         }
     }
     fun upload(){
-        confirm.setOnClickListener {
+        binding.confirm.setOnClickListener {
             Toast.makeText(applicationContext,"신고완료", Toast.LENGTH_SHORT).show()
             // 변수 설정 및 http 업로드
             val intent = Intent(this, Board::class.java)

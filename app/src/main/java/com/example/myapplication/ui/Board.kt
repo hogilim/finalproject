@@ -4,11 +4,12 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
+import com.example.myapplication.databinding.ActivityBoardBinding
 import com.example.myapplication.register.UserLocation
-import kotlinx.android.synthetic.main.activity_board.*
 
 
 class Board: AppCompatActivity() {
+    val binding = ActivityBoardBinding.inflate(layoutInflater)
     val items = ArrayList<BoardUnit>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,19 +43,19 @@ class Board: AppCompatActivity() {
             val intent = Intent(this, ShowBoard::class.java)
             startActivity(intent)
         }
-        xml_board_dogs.adapter = madapter
+        binding.xmlBoardDogs.adapter = madapter
     }
     fun select(){
 
     }
     fun lost(){
-        lost.setOnClickListener{
+        binding.lost.setOnClickListener{
             val intent = Intent(this, LostReport::class.java)
             startActivity(intent)
         }
     }
     fun found(){
-        found.setOnClickListener{
+        binding.found.setOnClickListener{
             val intent = Intent(this, FoundReport::class.java)
             startActivity(intent)
         }

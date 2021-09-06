@@ -4,9 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
-import kotlinx.android.synthetic.main.activity_lost.*
+import com.example.myapplication.databinding.ActivityShowboardBinding
 
 class ShowBoard: AppCompatActivity() {
+    val binding = ActivityShowboardBinding.inflate(layoutInflater)
     var picture = ""
     var title = ""
     var cont = ""
@@ -22,7 +23,7 @@ class ShowBoard: AppCompatActivity() {
         // 변수값 받아와 초기화
     }
     fun upload(){
-        confirm.setOnClickListener {
+        binding.confirm.setOnClickListener {
             // 글작성
             val intent = Intent(this, FoundReport::class.java)
             startActivity(intent)

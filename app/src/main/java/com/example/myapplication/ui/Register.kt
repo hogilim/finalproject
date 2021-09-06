@@ -8,9 +8,10 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.example.myapplication.R
-import kotlinx.android.synthetic.main.activity_register.*
+import com.example.myapplication.databinding.ActivityRegisterBinding
 
 class Register : AppCompatActivity() {
+    val binding = ActivityRegisterBinding.inflate(layoutInflater)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,11 +30,11 @@ class Register : AppCompatActivity() {
         var selected_gu = ""
         var selected_dong = ""
 
-        select_si.adapter = adapter_Si
-        select_gu.adapter = adapter_gu
-        select_dong.adapter = adapter_Dong
+        binding.selectSi.adapter = adapter_Si
+        binding.selectGu.adapter = adapter_gu
+        binding.selectDong.adapter = adapter_Dong
 
-        select_si.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        binding.selectSi.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View?,
@@ -46,7 +47,7 @@ class Register : AppCompatActivity() {
                 selected_si = "no"
             }
         }
-        select_gu.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        binding.selectGu.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View?,
@@ -59,7 +60,7 @@ class Register : AppCompatActivity() {
 
             }
         }
-        select_dong.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+        binding.selectDong.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View?,
@@ -74,15 +75,15 @@ class Register : AppCompatActivity() {
         }
 
         // 가입 버튼 누를 때
-        btn_register.setOnClickListener {
+        binding.btnRegister.setOnClickListener {
 
             var isExistBlank = false
             var isPWSame = false
 
-            val id = edit_id.text.toString()
-            val nickname = edit_nickname.text.toString()
-            val pw = edit_pw.text.toString()
-            val pw_re = edit_pw_re.text.toString()
+            val id = binding.editId.text.toString()
+            val nickname = binding.editNickname.text.toString()
+            val pw = binding.editPw.text.toString()
+            val pw_re = binding.editPwRe.text.toString()
             val si = selected_si
             val gu = selected_gu
             val dong = selected_dong
