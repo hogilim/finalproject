@@ -39,7 +39,7 @@ class BoardAdapter(val context: Context, val items: ArrayList<BoardUnit>, val it
             }
             dname?.text = dog.name
             dgender?.text = dog.gender
-            location?.text = dog.location.si+" "+dog.location.gu+" "+dog.location.dong
+            location?.text = " "+dog.location.gu+" "+dog.location.dong
             date?.text = dog.date.toString()
 
             itemView.setOnClickListener { itemClick(dog) }

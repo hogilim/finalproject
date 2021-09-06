@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.R
+import com.example.myapplication.register.UserLocation
 import kotlinx.android.synthetic.main.activity_board.*
 
 
@@ -24,18 +25,18 @@ class Board: AppCompatActivity() {
     private fun initRecycler() {
 
         items.apply {
-            add(BoardUnit(imgProfile = "d1", name = "mary", gender = "male", location = Address("난향","관악","서울"), 1))
-            add(BoardUnit(imgProfile = "d2", name = "mary", gender = "male", location = Address("난향","관악","서울"), 1))
-            add(BoardUnit(imgProfile = "d3", name = "mary", gender = "male", location = Address("난향","관악","서울"), 1))
-            add(BoardUnit(imgProfile = "d4", name = "mary", gender = "male", location = Address("난향","관악","서울"), 1))
-            add(BoardUnit(imgProfile = "d5", name = "mary", gender = "male", location = Address("난향","관악","서울"), 1))
-            add(BoardUnit(imgProfile = "d6", name = "mary", gender = "male", location = Address("난향","관악","서울"), 1))
-            add(BoardUnit(imgProfile = "", name = "mary", gender = "male", location = Address("난향","관악","서울"), 1))
-            add(BoardUnit(imgProfile = "", name = "mary", gender = "male", location = Address("난향","관악","서울"), 1))
-            add(BoardUnit(imgProfile = "", name = "mary", gender = "male", location = Address("난향","관악","서울"), 1))
-            add(BoardUnit(imgProfile = "", name = "mary", gender = "male", location = Address("난향","관악","서울"), 1))
-            add(BoardUnit(imgProfile = "", name = "mary", gender = "male", location = Address("난향","관악","서울"), 1))
-            add(BoardUnit(imgProfile = "", name = "mary", gender = "male", location = Address("난향","관악","서울"), 1))
+            add(BoardUnit(imgProfile = "d1", name = "mary", gender = "male", location = UserLocation("난향","관악"), 1))
+            add(BoardUnit(imgProfile = "d2", name = "mary", gender = "male", location = UserLocation("난향","관악"), 1))
+            add(BoardUnit(imgProfile = "d3", name = "mary", gender = "male", location = UserLocation("난향","관악"), 1))
+            add(BoardUnit(imgProfile = "d4", name = "mary", gender = "male", location = UserLocation("난향","관악"), 1))
+            add(BoardUnit(imgProfile = "d5", name = "mary", gender = "male", location = UserLocation("난향","관악"), 1))
+            add(BoardUnit(imgProfile = "d6", name = "mary", gender = "male", location = UserLocation("난향","관악"), 1))
+            add(BoardUnit(imgProfile = "", name = "mary", gender = "male", location = UserLocation("난향","관악"), 1))
+            add(BoardUnit(imgProfile = "", name = "mary", gender = "male", location = UserLocation("난향","관악"), 1))
+            add(BoardUnit(imgProfile = "", name = "mary", gender = "male", location = UserLocation("난향","관악"), 1))
+            add(BoardUnit(imgProfile = "", name = "mary", gender = "male", location = UserLocation("난향","관악"), 1))
+            add(BoardUnit(imgProfile = "", name = "mary", gender = "male", location = UserLocation("난향","관악"), 1))
+            add(BoardUnit(imgProfile = "", name = "mary", gender = "male", location = UserLocation("난향","관악"), 1))
         }
         val madapter = BoardAdapter(this, items){
             val intent = Intent(this, ShowBoard::class.java)
