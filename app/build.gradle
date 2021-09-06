@@ -59,5 +59,7 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
     // SwipeRefreshLayout
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+    // TedPermission
+    implementation 'io.github.ParkSangGwon:tedpermission-normal:x.y.z'
 
 }
