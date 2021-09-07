@@ -1,13 +1,12 @@
 // https://yong0810.tistory.com/34?category=959344
 // https://ebbnflow.tistory.com/177
+// https://minggu92.tistory.com/8
 
 package com.example.myapplication.camara
 
 import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Activity
-import com.example.myapplication.ui.Board
-import com.example.myapplication.ui.Register
 
 import android.content.Intent
 import android.content.pm.PackageManager
@@ -22,17 +21,16 @@ import android.os.Bundle
 import android.os.Environment
 import android.provider.MediaStore
 import android.util.Log
-import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.FileProvider
 import com.example.myapplication.BuildConfig
-import com.example.myapplication.R
 import com.example.myapplication.databinding.CamtestBinding
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
 import java.util.*
-import java.util.Collections.rotate
+import android.content.ContentUris
+import android.database.Cursor
 
 
 class CamTest : AppCompatActivity() {
@@ -89,6 +87,7 @@ class CamTest : AppCompatActivity() {
                             val exifDegree = exifOrientationToDegrees(exifOrientation)
                             myBitmap = rotate(myBitmap, exifDegree)
                             binding.image.setImageBitmap(myBitmap)
+                            binding.rcode.setText(myBitmap.toString())
                         }
                         else {
                             Log.d("myBitmap null", "null")
@@ -168,6 +167,5 @@ class CamTest : AppCompatActivity() {
         mCurrentPhotoPath = image.absolutePath
         return image
     }
-
 
 }

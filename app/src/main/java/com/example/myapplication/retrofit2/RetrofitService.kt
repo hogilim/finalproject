@@ -12,6 +12,8 @@ import com.example.myapplication.register.RegisterSend
 import com.example.myapplication.register.UserLocation
 import com.example.myapplication.unit.UnitResponse
 import com.example.myapplication.unit.UnitSend
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
 import retrofit2.Call
 import retrofit2.http.*
 import retrofit2.http.Body
@@ -45,15 +47,16 @@ interface RetrofitService {
         @Body unit : UnitSend
     ):Call<UnitResponse>
 
-    @Headers("content-type: application/json")
+    @Multipart
     @POST("find")
     fun find(
-        @Body find : FindSend
-    ):Call<Unit>
+        @Part imageList : ArrayList<MultipartBody.Part>,
+        @PartMap map : MutableMap<String, RequestBody>
+    ):Call<String>
 
     @Headers("content-type: application/json")
     @POST("lost")
     fun lost(
         @Body lost : LostSend
-    ):Call<Unit>
+    ):Call<String>
 }
