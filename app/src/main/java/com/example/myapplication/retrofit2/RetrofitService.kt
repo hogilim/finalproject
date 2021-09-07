@@ -12,6 +12,7 @@ import com.example.myapplication.register.RegisterSend
 import com.example.myapplication.register.UserLocation
 import com.example.myapplication.unit.UnitResponse
 import com.example.myapplication.unit.UnitSend
+import okhttp3.MultipartBody
 import retrofit2.Call
 import retrofit2.http.*
 import retrofit2.http.Body
@@ -19,41 +20,46 @@ import retrofit2.http.Header
 import java.net.URI
 import java.net.URL
 import java.net.URLDecoder
+import retrofit2.http.GET
+
+
+
 
 interface RetrofitService {
     @Headers("content-type: application/json")
     @POST("register")
     fun register(
-        @Body register : RegisterSend
-    ):Call<RegisterResponse>
+        @Body register: RegisterSend
+    ): Call<RegisterResponse>
 
     @Headers("content-type: application/json")
     @POST("login")
     fun login(
-        @Body login : LoginSend
-    ):Call<LoginResponse>
+        @Body login: LoginSend
+    ): Call<LoginResponse>
 
     @Headers("content-type: application/json")
     @POST("Board")
     fun board(
-        @Body board : BoardSend
-    ):Call<BoardResponse>
+        @Body board: BoardSend
+    ): Call<BoardResponse>
 
     @Headers("content-type: application/json")
     @POST("Unit")
     fun unit(
-        @Body unit : UnitSend
-    ):Call<UnitResponse>
+        @Body unit: UnitSend
+    ): Call<UnitResponse>
 
-    @Headers("content-type: application/json")
+    @Multipart
     @POST("find")
     fun find(
-        @Body find : FindSend
-    ):Call<Unit>
+        @Part image: MultipartBody.Part,
 
-    @Headers("content-type: application/json")
+    ): Call<String>
+
+    @Multipart
     @POST("lost")
     fun lost(
-        @Body lost : LostSend
-    ):Call<Unit>
+        @Body lost: LostSend
+    ): Call<String>
 }
