@@ -31,16 +31,31 @@ import java.text.SimpleDateFormat
 import java.util.*
 import android.content.ContentUris
 import android.database.Cursor
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import java.io.ByteArrayOutputStream
 
 
 class CamTest : AppCompatActivity() {
     val REQUEST_TAKE_PHOTO = 1
     var mCurrentPhotoPath : String = ""
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         val binding = CamtestBinding.inflate(layoutInflater)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
+        var imageList = ArrayList<MultipartBody.Part>()
+        //var path = "app/src/main/res/drawable-v24/d1.jpg"
+        //var file = File(path)
+        //var rqFile = RequestBody.create(MediaType.parse("Multipart/form-data"), file)
+        //var upFile = MultipartBody.Part.createFormData("files[]",file.name, rqFile)
+        //imageList.add(upFile)
+        var map = mutableMapOf<String, RequestBody>()
+        var name = RequestBody.create(MediaType.parse("text/plain"),"dungdung")
+        map.put("name",name)
 
         binding.cam.setOnClickListener{
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
@@ -86,6 +101,8 @@ class CamTest : AppCompatActivity() {
                                 ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_NORMAL)
                             val exifDegree = exifOrientationToDegrees(exifOrientation)
                             myBitmap = rotate(myBitmap, exifDegree)
+                            var bs = ByteArrayOutputStream()
+                            var image = myBitmap.compress(Bitmap.CompressFormat.JPEG, 20,bs)
                             binding.image.setImageBitmap(myBitmap)
                             binding.rcode.setText(myBitmap.toString())
                         }

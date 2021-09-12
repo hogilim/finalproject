@@ -48,7 +48,7 @@ interface RetrofitService {
     ):Call<UnitResponse>
 
     @Multipart
-    @POST("find")
+    @POST("test-file-up1")
     fun find(
         @Part imageList : ArrayList<MultipartBody.Part>,
         @PartMap map : MutableMap<String, RequestBody>

@@ -1,7 +1,10 @@
 package com.example.myapplication
 
+import android.graphics.BitmapFactory
+import android.graphics.drawable.BitmapDrawable
 import android.net.Uri
 import android.util.Log
+import androidx.appcompat.content.res.AppCompatResources.getDrawable
 import com.example.myapplication.login.LoginResponse
 import com.example.myapplication.login.LoginSend
 import com.example.myapplication.register.RegisterResponse
@@ -25,16 +28,19 @@ fun main() {
     retrofit = RetrofitClient.getInstnace() // 2에서 만든 Retrofit client의 instance를 불러옵니다.
     myAPI = retrofit.create(RetrofitService::class.java)
 
+
     var imageList = ArrayList<MultipartBody.Part>()
     var path = "app/src/main/res/drawable-v24/d1.jpg"
     var file = File(path)
+    println("file = ${file}")
     var rqFile = RequestBody.create(MediaType.parse("Multipart/form-data"), file)
-    var upFile = MultipartBody.Part.createFormData("files[]",file.name, rqFile)
+    var upFile = MultipartBody.Part.createFormData("imageList",file.name, rqFile)
     imageList.add(upFile)
+    println("imageList = ${imageList}")
     var map = mutableMapOf<String, RequestBody>()
     var name = RequestBody.create(MediaType.parse("text/plain"),"dungdung")
     map.put("name",name)
-
+    // <"name" : "...">
     Runnable {
         myAPI.find(
             imageList,
